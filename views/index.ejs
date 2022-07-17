@@ -1,13 +1,11 @@
+<!-- This is the landing page -->
+
 <%- include('./partials/top') %>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<h1> Enter a Github username: </h1>
+
+<form>
+  <input type="text" class="form-control" id="chat_input" name="chat_input"  placeholder="Type a message">
+  <button type="button" class="btn btn-primary" id="username_submit" onclick="submitUsername()">Get Info</button>
+</form>
+<%- include('./partials/bottom') %>
