@@ -1,6 +1,9 @@
 
 const { Octokit, App } = require("octokit");
-const octokit = new Octokit({auth: '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'})
+
+const githubAuth = process.env.GITHUB_KEY;
+console.log(githubAuth);
+const octokit = new Octokit({auth: githubAuth});
 
 class octokitService {
 

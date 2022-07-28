@@ -1,4 +1,10 @@
 
-async function init() {
+function init() {
 
+}
+
+function submitUsername{
+    axios.post('/index'{
+
+    });
 }
