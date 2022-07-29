@@ -9,9 +9,14 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST on repos */
-router.post('/repos', function(req, res, next) {
+router.post('/repos', async function(req, res, next) {
   /* @todo get token, retrieve JSON and fill repos */
-  res.render('repos', { title: 'Github Stats' });
+  console.log(req.body.username);
+  const repoResponse = await octokitService.getRepos(req.body.username);
+  console.log(repoResponse);
+  res.send(repoResponse.data);
+
+  //res.render('repos', { title: 'Github Stats' });
 });
 
 /* Test */

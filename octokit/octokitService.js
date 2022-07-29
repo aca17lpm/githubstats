@@ -12,6 +12,15 @@ class octokitService {
         console.log("Hello, %s", login);
     }
 
+    static async getRepos(username) {
+        /*return await octokit.request('GET /users/{username}/repos', {
+            username: username
+        });*/
+        return await octokit.rest.repos.listForUser({
+            username,
+        });
+    }
+
 }
 
 module.exports = octokitService;

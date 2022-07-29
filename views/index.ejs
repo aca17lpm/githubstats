@@ -5,7 +5,13 @@
 <h1> Enter a Github username: </h1>
 
 <form>
-  <input type="text" class="form-control" id="chat_input" name="chat_input"  placeholder="Type a message">
+  <input type="textbox" class="form-control" id="username_input" name="username_input" placeholder="Type a username">
   <button type="button" class="btn btn-primary" id="username_submit" onclick="submitUsername()">Get Info</button>
 </form>
+
+<div id = 'repo_div'>
+  <p id = 'test'></p>
+
+</div>
+
 <%- include('./partials/bottom') %>
