@@ -6,28 +6,27 @@ function init() {
 function addRepo(repo) {
 
     let repoCard = document.createElement('div')
-    repoCard.classList.add('card');
+    repoCard.classList.add('card', 'mb-4');
 
-    let cardBody = document.createElement('div');
-    cardBody.classList.add('card-body');
+    let cardHeader = document.createElement('div');
+    cardHeader.classList.add('card-header');
 
     let heading = document.createElement('h4');
     heading.innerText = repo.name;
 
+    cardHeader.appendChild(heading);
+
+    let cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
     let url = document.createElement('p');
     url.innerText = repo.html_url;
-
-/*    let type = document.createElement('p');
-    type.innerText = item['@type'].reduce((prev, curr) => {
-        return `${prev}, ${curr}`;
-    })*/
 
     let description = document.createElement('p');
     description.innerText = repo.description;
 
-    cardBody.appendChild(heading);
+    cardBody.appendChild(cardHeader);
     cardBody.appendChild(url);
-    //cardBody.appendChild(type);
     cardBody.appendChild(description);
 
     repoCard.appendChild(cardBody);
@@ -35,6 +34,8 @@ function addRepo(repo) {
     document.getElementById('repo_div').appendChild(repoCard);
 
 }
+
+
 
 /**
  * function to recieve username, send axios
