@@ -1,6 +1,11 @@
+/** routes/index.js
+ * Manage routing for server
+ * */
+
 var express = require('express');
 var router = express.Router();
 
+// Get octokit routines from octokitService
 const octokitService = require('../octokit/octokitService');
 
 /* GET home page. */
@@ -10,13 +15,17 @@ router.get('/', function(req, res, next) {
 
 /* POST on repos */
 router.post('/repos', async function(req, res, next) {
-  /* @todo get token, retrieve JSON and fill repos */
-  console.log(req.body.username);
-  const repoResponse = await octokitService.getRepos(req.body.username);
-  console.log(repoResponse);
-  res.send(repoResponse.data);
+  let repoResponse = Object;
 
-  //res.render('repos', { title: 'Github Stats' });
+  try {
+    // Use octokitService.js to communicate with Github API
+    repoResponse = await octokitService.getRepos(req.body.username);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    res.send(repoResponse.data);
+  }
+
 });
 
 /* Test */

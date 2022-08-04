@@ -1,8 +1,10 @@
-
+/** octokitService.js
+ *  Wrapper for routines using the octokit package for the Github API
+ */
 const { Octokit, App } = require("octokit");
 
+// supply authentication on server startup
 const githubAuth = process.env.GITHUB_KEY;
-console.log(githubAuth);
 const octokit = new Octokit({auth: githubAuth});
 
 class octokitService {
@@ -12,10 +14,8 @@ class octokitService {
         console.log("Hello, %s", login);
     }
 
+    /* Use octokit rest API to retrieve all public repositories*/
     static async getRepos(username) {
-        /*return await octokit.request('GET /users/{username}/repos', {
-            username: username
-        });*/
         return await octokit.rest.repos.listForUser({
             username,
         });

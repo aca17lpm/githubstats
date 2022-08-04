@@ -11,16 +11,13 @@ https://getbootstrap.com/docs/4.0/examples/cover/#
     <h1 class="cover-heading">Github Stats</h1>
     <p class="lead">Enter your Github username to receive a summary of your public repositories.</p>
 
-    <form class= "username-form" onsubmit="submitUsername()">
-      <input type="textbox" class="form-control" id="username_input" name="username_input" placeholder="Type a username"
-      onkeydown = "if (event.keyCode == 13) submitUsername()">
+    <form id = "username_form" class= "username-form">
+      <input type="textbox" class="form-control" id="username_input" name="username_input" placeholder="Type a username">
       <button type="button" class="btn btn-primary" id="username_submit" onclick="submitUsername()">Show Me!</button>
     </form>
+
+    <div id = "repo_div" class = "card-deck mt-3 mb-3 text-center"></div>
   </main>
-
-  <div id = "repo_div" class = "card-deck mb-3 text-center">
-
-  </div>
 
   <footer class="mastfoot mt-auto">
     <div class="inner">
