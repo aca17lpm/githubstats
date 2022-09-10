@@ -14,7 +14,7 @@ class octokitService {
         console.log("Hello, %s", login);
     }
 
-    /* Use octokit rest API to retrieve all public repositories*/
+    /* Use octokit rest API to retrieve all public repositories */
     static async getRepos(username) {
         return await octokit.rest.repos.listForUser({
             username,

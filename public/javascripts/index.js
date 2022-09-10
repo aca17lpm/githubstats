@@ -37,10 +37,9 @@ function submitUsername() {
             username: input
         }).then ((res) => {
             let repos = res.data;
-
+            console.log(repos[0]);
             // For each repo, add a card filled out with repo info
             for (let repo in repos) {
-                console.log(repo);
                 addRepo(repos[repo]);
             }
 
